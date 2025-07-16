@@ -11,6 +11,10 @@
 		F6BA6CF72E28552F00CD3E26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6CF62E28552F00CD3E26 /* ContentView.swift */; };
 		F6BA6CF92E28553100CD3E26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BA6CF82E28553100CD3E26 /* Assets.xcassets */; };
 		F6BA6CFC2E28553100CD3E26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BA6CFB2E28553100CD3E26 /* Preview Assets.xcassets */; };
+		F6BA6D032E28557700CD3E26 /* CoreDataNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6D022E28557700CD3E26 /* CoreDataNotesView.swift */; };
+		F6BA6D052E28559600CD3E26 /* SwiftDataNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6D042E28559600CD3E26 /* SwiftDataNotesView.swift */; };
+		F6BA6D082E2857A800CD3E26 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6D062E2857A800CD3E26 /* Model.xcdatamodeld */; };
+		F6BA6D0A2E285B0900CD3E26 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6D092E285B0900CD3E26 /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		F6BA6CF62E28552F00CD3E26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6BA6CF82E28553100CD3E26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6BA6CFB2E28553100CD3E26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F6BA6D022E28557700CD3E26 /* CoreDataNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNotesView.swift; sourceTree = "<group>"; };
+		F6BA6D042E28559600CD3E26 /* SwiftDataNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataNotesView.swift; sourceTree = "<group>"; };
+		F6BA6D072E2857A800CD3E26 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F6BA6D092E285B0900CD3E26 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +60,13 @@
 			isa = PBXGroup;
 			children = (
 				F6BA6CF42E28552F00CD3E26 /* NoteVault_SwiftData_vs_CoreDataApp.swift */,
+				F6BA6D022E28557700CD3E26 /* CoreDataNotesView.swift */,
+				F6BA6D042E28559600CD3E26 /* SwiftDataNotesView.swift */,
 				F6BA6CF62E28552F00CD3E26 /* ContentView.swift */,
 				F6BA6CF82E28553100CD3E26 /* Assets.xcassets */,
 				F6BA6CFA2E28553100CD3E26 /* Preview Content */,
+				F6BA6D062E2857A800CD3E26 /* Model.xcdatamodeld */,
+				F6BA6D092E285B0900CD3E26 /* Persistence.swift */,
 			);
 			path = "NoteVault-SwiftData-vs-CoreData";
 			sourceTree = "<group>";
@@ -137,7 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BA6D032E28557700CD3E26 /* CoreDataNotesView.swift in Sources */,
 				F6BA6CF72E28552F00CD3E26 /* ContentView.swift in Sources */,
+				F6BA6D082E2857A800CD3E26 /* Model.xcdatamodeld in Sources */,
+				F6BA6D0A2E285B0900CD3E26 /* Persistence.swift in Sources */,
+				F6BA6D052E28559600CD3E26 /* SwiftDataNotesView.swift in Sources */,
 				F6BA6CF52E28552F00CD3E26 /* NoteVault_SwiftData_vs_CoreDataApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +360,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F6BA6D062E2857A800CD3E26 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F6BA6D072E2857A800CD3E26 /* Model.xcdatamodel */,
+			);
+			currentVersion = F6BA6D072E2857A800CD3E26 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = "/Users/sachindrafernando/Documents/Projects/NoteVault-SwiftData-vs-CoreData/NoteVault-SwiftData-vs-CoreData/Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F6BA6CE92E28552F00CD3E26 /* Project object */;
 }
