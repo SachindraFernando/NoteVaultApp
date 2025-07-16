@@ -9,23 +9,19 @@
 // MARK: - CoreData Version
 // ================================
 
-import CoreData
 import SwiftUI
+import CoreData
 
-@objc(NoteEntity)
-public class NoteEntity: NSManagedObject {
-    @NSManaged public var title: String
-    @NSManaged public var timestamp: Date
-}
-
-extension NoteEntity: Identifiable {}
+//extension NoteEntity: Identifiable {}
 
 struct CoreDataNotesView: View {
     @Environment(\.managedObjectContext) private var context
+
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \NoteEntity.timestamp, ascending: false)],
-        animation: .default
+        entity: NoteEntity.entity(), // this must match the loaded entity
+        sortDescriptors: [NSSortDescriptor(keyPath: \NoteEntity.timestamp, ascending: false)]
     ) private var notes: FetchedResults<NoteEntity>
+
 
     @State private var newNoteTitle = ""
 
@@ -37,34 +33,45 @@ struct CoreDataNotesView: View {
                     .padding()
 
                 Button("Add Note") {
-                    let note = NoteEntity(context: context)
-                    note.title = newNoteTitle
-                    note.timestamp = Date()
+                    let newNote = NoteEntity(context: context)
+                    newNote.title = newNoteTitle
+                    newNote.timestamp = Date()
 
-                    try? context.save()
-                    newNoteTitle = ""
+                    do {
+                        try context.save()
+                        newNoteTitle = ""
+                    } catch {
+                        print("Failed to save note: \(error)")
+                    }
                 }
                 .padding(.bottom)
 
                 List {
                     ForEach(notes) { note in
                         VStack(alignment: .leading) {
-                            Text(note.title)
+                            Text(note.title ?? "Untitled")
                                 .font(.headline)
-                            Text(note.timestamp.formatted())
+                            Text(note.timestamp?.formatted() ?? "No date")
                                 .font(.caption)
                                 .foregroundColor(.gray)
                         }
                     }
-                    .onDelete { indices in
-                        for index in indices {
-                            context.delete(notes[index])
-                        }
-                        try? context.save()
-                    }
+                    .onDelete(perform: deleteNotes)
                 }
             }
             .navigationTitle("CoreData Notes")
+        }
+    }
+
+    private func deleteNotes(at offsets: IndexSet) {
+        for index in offsets {
+            let note = notes[index]
+            context.delete(note)
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Failed to delete note: \(error)")
         }
     }
 }
