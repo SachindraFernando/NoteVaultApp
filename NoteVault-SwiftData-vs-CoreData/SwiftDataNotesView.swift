@@ -31,6 +31,15 @@ struct SwiftDataNotesView: View {
     var body: some View {
         NavigationView {
             VStack {
+                HStack{
+                    Spacer()
+                    Text("SwiftData Notes 💡")
+                        .font(.title)
+                        .foregroundColor(.cyan)
+                    Spacer()
+                    
+                }//:HStack
+                .padding(.horizontal,20)
                 TextField("Enter note...", text: $newNoteTitle)
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -40,6 +49,9 @@ struct SwiftDataNotesView: View {
                     context.insert(newNote)
                     newNoteTitle = ""
                 }
+                .modifier(OutlineBtnStyle(maxWidth: .infinity,minHeight: 56))
+                .padding(.horizontal)
+                .padding(.bottom)
                 .padding(.bottom)
 
                 List {
@@ -47,6 +59,7 @@ struct SwiftDataNotesView: View {
                         VStack(alignment: .leading) {
                             Text(note.title)
                                 .font(.headline)
+                                .foregroundColor(.black.opacity(0.7))
                             Text(note.timestamp.formatted())
                                 .font(.caption)
                                 .foregroundColor(.gray)
@@ -59,7 +72,7 @@ struct SwiftDataNotesView: View {
                     }
                 }
             }
-            .navigationTitle("SwiftData Notes")
+            //.navigationTitle("SwiftData Notes")
         }
     }
 }

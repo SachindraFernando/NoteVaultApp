@@ -11,8 +11,8 @@ enum StorageMode {
     case coreData, swiftData
 }
 
-//let currentStorage: StorageMode = .swiftData
-let currentStorage: StorageMode = .coreData
+let currentStorage: StorageMode = .swiftData
+//let currentStorage: StorageMode = .coreData
 
 @main
 struct NoteVault_SwiftData_vs_CoreDataApp: App {

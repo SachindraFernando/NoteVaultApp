@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F68C39FA2E2AF21800EEF930 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68C39F92E2AF21800EEF930 /* CustomButtonView.swift */; };
 		F6BA6CF52E28552F00CD3E26 /* NoteVault_SwiftData_vs_CoreDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6CF42E28552F00CD3E26 /* NoteVault_SwiftData_vs_CoreDataApp.swift */; };
 		F6BA6CF72E28552F00CD3E26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA6CF62E28552F00CD3E26 /* ContentView.swift */; };
 		F6BA6CF92E28553100CD3E26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BA6CF82E28553100CD3E26 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F68C39F92E2AF21800EEF930 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		F6BA6CF12E28552F00CD3E26 /* NoteVault-SwiftData-vs-CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NoteVault-SwiftData-vs-CoreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BA6CF42E28552F00CD3E26 /* NoteVault_SwiftData_vs_CoreDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVault_SwiftData_vs_CoreDataApp.swift; sourceTree = "<group>"; };
 		F6BA6CF62E28552F00CD3E26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				F6BA6CFA2E28553100CD3E26 /* Preview Content */,
 				F6BA6D062E2857A800CD3E26 /* Model.xcdatamodeld */,
 				F6BA6D092E285B0900CD3E26 /* Persistence.swift */,
+				F68C39F92E2AF21800EEF930 /* CustomButtonView.swift */,
 			);
 			path = "NoteVault-SwiftData-vs-CoreData";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68C39FA2E2AF21800EEF930 /* CustomButtonView.swift in Sources */,
 				F6BA6D032E28557700CD3E26 /* CoreDataNotesView.swift in Sources */,
 				F6BA6CF72E28552F00CD3E26 /* ContentView.swift in Sources */,
 				F6BA6D082E2857A800CD3E26 /* Model.xcdatamodeld in Sources */,

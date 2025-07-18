@@ -26,41 +26,52 @@ struct CoreDataNotesView: View {
     @State private var newNoteTitle = ""
 
     var body: some View {
-        NavigationView {
-            VStack {
-                TextField("Enter note...", text: $newNoteTitle)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-
-                Button("Add Note") {
-                    let newNote = NoteEntity(context: context)
-                    newNote.title = newNoteTitle
-                    newNote.timestamp = Date()
-
-                    do {
-                        try context.save()
-                        newNoteTitle = ""
-                    } catch {
-                        print("Failed to save note: \(error)")
-                    }
-                }
-                .padding(.bottom)
-
-                List {
-                    ForEach(notes) { note in
-                        VStack(alignment: .leading) {
-                            Text(note.title ?? "Untitled")
-                                .font(.headline)
-                            Text(note.timestamp?.formatted() ?? "No date")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    .onDelete(perform: deleteNotes)
+        ZStack{
+            
+        VStack {
+            HStack{
+                Spacer()
+                Text("CoreData Notes")
+                    .font(.title)
+                    .foregroundColor(.cyan)
+                Spacer()
+                
+            }//:HStack
+            .padding(.horizontal,20)
+            TextField("Enter note...", text: $newNoteTitle)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            Button("Add Note") {
+                let newNote = NoteEntity(context: context)
+                newNote.title = newNoteTitle
+                newNote.timestamp = Date()
+                
+                do {
+                    try context.save()
+                    newNoteTitle = ""
+                } catch {
+                    print("Failed to save note: \(error)")
                 }
             }
-            .navigationTitle("CoreData Notes")
+            .modifier(OutlineBtnStyle(maxWidth: .infinity,minHeight: 56))
+            .padding(.horizontal)
+            .padding(.bottom)
+            
+            List {
+                ForEach(notes) { note in
+                    VStack(alignment: .leading) {
+                        Text(note.title ?? "Untitled")
+                            .font(.headline)
+                        Text(note.timestamp?.formatted() ?? "No date")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .onDelete(perform: deleteNotes)
+            }
         }
+    }
     }
 
     private func deleteNotes(at offsets: IndexSet) {
@@ -74,4 +85,8 @@ struct CoreDataNotesView: View {
             print("Failed to delete note: \(error)")
         }
     }
+}
+
+#Preview {
+    CoreDataNotesView()
 }
