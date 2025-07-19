@@ -72,7 +72,6 @@ struct SwiftDataNotesView: View {
                     }
                 }
             }
-            //.navigationTitle("SwiftData Notes")
         }
     }
 }
